@@ -1,6 +1,5 @@
 var express = require('express');
 var nodemailer = require('nodemailer');
-var smtpTransport = require('nodemailer-smtp-transport');
 var xoauth2 = require("xoauth2"), xoauth2gen;
 var oauth = require('../configure/oauth');
 var gmail = require('../configure/gmail');
@@ -30,7 +29,6 @@ xoauth2gen.getToken(function(err, token, accessToken){
     console.log("HTTP getToken method Authorization: Bearer " + accessToken);
 });
 
-xoauth2gen.updateToken(gmail.access_token, 60);
 
 xoauth2gen.on("token", function(token){
   console.log("User: ", token.user); // e-mail address
@@ -46,7 +44,10 @@ router.post('/email',function(req, res){
     }
   }));
 
-  var text = 'Hello world from \n\n';
+  var text = 'name: ' + req.body.name + "\n"
+              + 'email: ' + req.body.email + "\n"
+              + 'phone: ' + req.body.phone + "\n"
+              + 'message: ' + req.body.message;
 
   var mailOptions = {
     from: 'no-reply@uppercaseyvr.com', // sender address
