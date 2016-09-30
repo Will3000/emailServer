@@ -10,35 +10,38 @@ var users = require('./routes/users');
 
 var app = express();
 
-// configure mailer
-var mailer = require('express-mailer');
-mailer.extend(app, {
-  from: 'no-reply@example.com',
-  host: 'smtp.gmail.com',
-  secureConnection: true,
-  port: 465,
-  transportMethod: 'STMP',
-  auth: {
-    user: 'mailertesting003@gmail.com',
-    password: '20161234'
-  }
-});
 
-app.get('/email', function (req, res, next) {
-  app.mailer.send('email', {
-    to: 'huiquanlu@gmail.com', // REQUIRED. This can be a comma delimited string just like a normal email to field.
-    subject: 'Uppercase Contact Email', // REQUIRED.
-    otherProperty: 'Other Property' // All additional properties are also passed to the template as local variables.
-  }, function (err) {
-    if (err) {
-      // handle error
-      console.log(err);
-      res.send('There was an error sending the email');
-      return;
-    }
-    res.send('Email Sent');
-  });
-});
+
+
+// configure mailer
+// var mailer = require('express-mailer');
+// mailer.extend(app, {
+//   from: 'no-reply@example.com',
+//   host: 'smtp.gmail.com',
+//   secureConnection: true,
+//   port: 465,
+//   transportMethod: 'STMP',
+//   auth: {
+//     user: 'mailertesting003@gmail.com',
+//     password: '20161234'
+//   }
+// });
+
+// app.get('/email', function (req, res, next) {
+//   app.mailer.send('email', {
+//     to: 'huiquanlu@gmail.com', // REQUIRED. This can be a comma delimited string just like a normal email to field.
+//     subject: 'Uppercase Contact Email', // REQUIRED.
+//     otherProperty: 'Other Property' // All additional properties are also passed to the template as local variables.
+//   }, function (err) {
+//     if (err) {
+//       // handle error
+//       console.log(err);
+//       res.send('There was an error sending the email');
+//       return;
+//     }
+//     res.send('Email Sent');
+//   });
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

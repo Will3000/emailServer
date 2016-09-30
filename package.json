@@ -10,9 +10,10 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "express": "~4.13.4",
-    "express-mailer": "^0.3.1",
     "jade": "*",
     "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.0"
+    "nodemailer": "*",
+    "serve-favicon": "~2.3.0",
+    "xoauth2": "^1.2.0"
   }
 }
