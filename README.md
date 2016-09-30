@@ -6,6 +6,7 @@ Run <code>npm install</code> after pulling
 Create your own configure folder that contains gmail.js and oauth.js
 
 inside gmail.js:
+
 <code>
 module.exports = {
   "access_token": "xxx",
@@ -16,6 +17,7 @@ module.exports = {
 </code>
 
 inside oauth.js:
+
 <code>
 module.exports = {
   username: "example@gmail.com",
