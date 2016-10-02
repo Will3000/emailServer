@@ -1,8 +1,9 @@
 var express = require('express');
 var nodemailer = require('nodemailer');
 var xoauth2 = require("xoauth2"), xoauth2gen;
-var oauth = require('../configure/oauth');
-var gmail = require('../configure/gmail');
+// local api keys
+// var oauth = require('../configure/oauth');
+// var gmail = require('../configure/gmail');
 var router = express.Router();
 
 /* GET home page. */
@@ -10,15 +11,12 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-console.log(oauth.username);
-console.log(gmail.refresh_token);
-
 xoauth2gen = require('xoauth2').createXOAuth2Generator({
-  user: oauth.username,
-  clientId: oauth.clientId,
-  clientSecret: oauth.clientSecret,
-  refreshToken: gmail.refresh_token,
-  accessToken: gmail.access_token // optional
+  user: process.env.username,
+  clientId: process.env.clientId,
+  clientSecret: process.env.clientSecret,
+  refreshToken: process.env.refresh_token,
+  accessToken: process.env.access_token // optional
 });
 
 // HTTP
