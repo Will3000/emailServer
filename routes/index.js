@@ -1,9 +1,6 @@
 var express = require('express');
 var nodemailer = require('nodemailer');
 var xoauth2 = require("xoauth2"), xoauth2gen;
-// local api keys
-// var oauth = require('../configure/oauth');
-// var gmail = require('../configure/gmail');
 var router = express.Router();
 
 /* GET home page. */
