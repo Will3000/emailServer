@@ -44,23 +44,24 @@ router.post('/email',function(req, res){
               + 'phone: ' + req.body.phone + "\n"
               + 'message: ' + req.body.message;
 
-  var mailOptions = {
-    from: 'no-reply@uppercaseyvr.com', // sender address
-    to: 'huiquanlu@gmail.com', // list of receivers
-    subject: 'Uppercase Contact Email', // Subject line
-    text: text //, // plaintext body
-    // html: '<b>Hello world ✔</b>' // You can choose to send an HTML body instead
-  };
+  var receiversList = ['huiquanlu@gmail.com', 'salmansalem9022@gmail.com', 'leehyangnim@hotmail.com', 'tong.yvr@gmail.com', 'philipkenan@gmail.com']
 
-  transporter.sendMail(mailOptions, function(error, response) {
-    if (error) {
-      console.log(error);
-      res.send(error);
-    } else {
-      console.log('Message sent');
-      res.send('Okay');
-    }
-  });
+  receiversList.forEach(function(receiver){
+    transporter.sendMail({
+      from: 'no-reply@uppercaseyvr.com', // sender address
+      to: receiver, // list of receivers
+      subject: 'Uppercase Contact Email', // Subject line
+      text: text //, // plaintext body
+    }, function(error, response) {
+      if (error) {
+        console.log(error);
+        res.send(error);
+      } else {
+        console.log('Message sent');
+        res.send('Okay');
+      }
+    });
+  })
 })
 
 module.exports = router;
