@@ -46,6 +46,8 @@ router.post('/email',function(req, res){
 
   var receiversList = ['huiquanlu@gmail.com', 'salmansalem9022@gmail.com', 'leehyangnim@hotmail.com', 'tong.yvr@gmail.com', 'philipkenan@gmail.com']
 
+  var message;
+
   receiversList.forEach(function(receiver){
     transporter.sendMail({
       from: 'no-reply@uppercaseyvr.com', // sender address
@@ -54,14 +56,13 @@ router.post('/email',function(req, res){
       text: text //, // plaintext body
     }, function(error, response) {
       if (error) {
-        console.log(error);
-        res.send(error);
+        message = "Failed to send";
       } else {
-        console.log('Message sent');
-        res.send('Okay');
+        message = "Message Sent";
       }
     });
   })
+  res.send(message);
 })
 
 module.exports = router;
