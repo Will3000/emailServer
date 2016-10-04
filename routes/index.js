@@ -44,9 +44,9 @@ router.post('/email',function(req, res){
               + 'phone: ' + req.body.phone + "\n"
               + 'message: ' + req.body.message;
 
-  var receiversList = ['info@uppercaseyvr.com']
+  var receiversList = ['huiquanlu@gmail.com']
 
-  var message;
+  var message="okay";
 
   receiversList.forEach(function(receiver){
     transporter.sendMail({
