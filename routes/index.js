@@ -44,7 +44,7 @@ router.post('/email',function(req, res){
               + 'phone: ' + req.body.phone + "\n"
               + 'message: ' + req.body.message;
 
-  var receiversList = ['huiquanlu@gmail.com', 'salmansalem9022@gmail.com', 'leehyangnim@hotmail.com', 'tong.yvr@gmail.com', 'philipkenan@gmail.com']
+  var receiversList = ['huiquanlu@gmail.com', 'salmansalem9022@gmail.com', 'leehyangnim@hotmail.com', 'tong.yvr@gmail.com', 'philipkenan@gmail.com','info@uppercaseyvr.com']
 
   var message;
 
